@@ -1,0 +1,32 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>{{doctor.name}}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <section class="doctor-detail">
+      <div class="doctor-box">
+        <img src="{{doctor.image.url}}" alt="doctor" />
+
+        <div class="doctor-info">
+          <h1>{{doctor.name}}</h1>
+
+          <h3>{{doctor.specialization}}</h3>
+
+          <p>Qualification: {{doctor.qualification}}</p>
+
+          <p>Mobile: {{doctor.mobile}}</p>
+
+          <p>Available: {{doctor.available_days}}</p>
+
+          <a href="/" class="book-btn"> Back To Home </a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

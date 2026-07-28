@@ -1,0 +1,80 @@
+{% load static %}
+
+<nav class="navbar">
+  <div class="logo">
+    <a href="/"> Medicare Hospital </a>
+  </div>
+
+  <!-- Toggle -->
+
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Nav Links -->
+
+  <ul class="nav-links" id="nav-links">
+    <li>
+      <a href="/"> Home </a>
+    </li>
+
+    <li>
+      <a href="#about"> About </a>
+    </li>
+
+    <li>
+      <a href="#services"> Services </a>
+    </li>
+
+    <li>
+      <a href="/all-doctors/"> Doctors </a>
+    </li>
+
+    <li>
+      <a href="/book-appointment/"> Appointment </a>
+    </li>
+
+    <li>
+      <a href="#contact"> Contact </a>
+    </li>
+
+    {% if user.is_authenticated %}
+
+    <li>
+      <a href="/dashboard/"> Dashboard </a>
+    </li>
+
+    <li>
+      <a href="/logout/"> Logout </a>
+    </li>
+
+    <li>
+      <a href="#"> Welcome {{user.username}} </a>
+    </li>
+
+    {% else %}
+
+    <li>
+      <a href="/login/"> Login </a>
+    </li>
+
+    <li>
+      <a href="/register/"> Register </a>
+    </li>
+
+    {% endif %}
+  </ul>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("nav-links");
+
+    toggle.addEventListener("click", function () {
+      menu.classList.toggle("active");
+    });
+  });
+</script>

@@ -1,0 +1,73 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Medicare Hospital</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- TOP BAR -->
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+      <div class="top-left">
+        <span class="emergency-text">
+          🚨 Emergency:
+
+          <span class="emergency-number"> +91 9876543210 </span>
+        </span>
+
+        <span> ✉ medicare@gmail.com </span>
+      </div>
+
+      <div class="top-right">
+        <span> 🕒 Mon - Sat : 10AM - 6PM </span>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+
+    {% include 'navbar.html' %}
+
+    <!-- MAIN CONTENT -->
+
+    {% block content %} {% endblock %}
+
+    <!-- FOOTER -->
+
+    {% include 'footer.html' %}
+
+    <!-- WHATSAPP BUTTON -->
+
+    <a href="https://wa.me/918299255044" class="whatsapp-btn" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <!-- FIXED CALL BUTTON -->
+
+    <a href="tel:108" class="call-btn"> 📞 </a>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

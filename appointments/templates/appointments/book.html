@@ -1,0 +1,126 @@
+{% load static %}
+
+<!doctype html>
+
+<html>
+
+<head>
+
+    <title>
+
+        Book Appointment
+
+    </title>
+
+    <link rel="stylesheet"
+    href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+    <section class="appointment-page">
+
+
+        <div class="appointment-card">
+
+
+            <h1>
+
+                Book Appointment
+
+            </h1>
+
+
+
+            <form method="POST"
+            class="appointment-form">
+
+                {% csrf_token %}
+
+
+                <input
+                type="text"
+                name="patient_name"
+                placeholder="Enter Name"
+                required>
+
+
+                <input
+                type="email"
+                name="patient_email"
+                placeholder="Enter Email"
+                required>
+
+
+
+                <!-- DOCTOR -->
+
+                <select name="doctor"
+                required>
+
+                    <option value="">
+
+                        Select Doctor
+
+                    </option>
+
+
+                    {% for doctor in doctors %}
+
+                    <option value="{{ doctor.id }}">
+
+                        {{ doctor.name }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+
+                <input
+                type="date"
+                name="appointment_date"
+                required>
+
+
+
+                <textarea
+                name="problem"
+                placeholder="Describe Problem"
+                required></textarea>
+
+
+
+                <button type="submit">
+
+                    Book Appointment
+
+                </button>
+
+            </form>
+
+
+
+            <!-- BACK -->
+
+            <div class="back-btn-box">
+
+                <a href="/"
+                class="back-btn">
+
+                    ← Back To Home
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

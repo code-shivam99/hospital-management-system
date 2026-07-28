@@ -1,0 +1,109 @@
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Register</title>
+
+    <link rel="stylesheet"
+    href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<section class="appointment-page">
+
+    <h1>
+        Create Account
+    </h1>
+
+    <form method="POST"
+    class="appointment-form">
+
+        {% csrf_token %}
+
+        <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        required>
+
+        <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required>
+
+        <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        required>
+
+        <button type="submit">
+
+            Register
+
+        </button>
+
+    </form>
+
+</section>
+
+</body>
+</html> -->
+
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>Register</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <section class="appointment-page">
+      <h1>Create Account</h1>
+
+      <form method="POST" class="auth-form">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Username" required />
+
+        <input type="email" name="email" placeholder="Email" required />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+
+        <button type="submit">Register</button>
+      </form>
+      <div class="auth-buttons">
+
+    <a href="/"
+    class="back-btn">
+
+        ← Back To Home
+
+    </a>
+
+
+    <a href="/forgot-password/"
+    class="forget-btn">
+
+        Forgot Password
+
+    </a>
+
+</div>
+    </section>
+  </body>
+</html>

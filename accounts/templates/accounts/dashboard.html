@@ -1,0 +1,50 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <section class="appointment-page">
+      <h1>My Appointments</h1>
+
+      <div class="dashboard-buttons">
+        <a href="/" class="book-btn"> Back To Home </a>
+
+        <!-- <a href="/logout/"
+            class="book-btn">
+
+                Logout
+
+        </a> -->
+      </div>
+
+      <div class="status-box">
+        {% for data in appointments %}
+
+        <div class="status-card">
+          <h2>{{data.doctor.name}}</h2>
+
+          <p>Date: {{data.appointment_date}}</p>
+
+          <p>
+            Status:
+            <span class="status {{data.status}}"> {{data.status}} </span>
+          </p>
+
+          <p>Problem: {{data.problem}}</p>
+        </div>
+
+        {% empty %}
+
+        <h2>No Appointments Found</h2>
+
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>

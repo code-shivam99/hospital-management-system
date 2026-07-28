@@ -1,0 +1,49 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>Check Appointment</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <section class="appointment-page">
+      <h1>Check Appointment</h1>
+
+      <form method="POST" class="appointment-form">
+        {% csrf_token %}
+
+        <input
+          type="email"
+          name="patient_email"
+          placeholder="Enter Your Email"
+          required
+        />
+
+        <button type="submit">Check Status</button>
+      </form>
+
+      {% if appointment %}
+
+      <div class="status-box">
+        {% for data in appointment %}
+
+        <div class="status-card">
+          <h2>{{data.patient_name}}</h2>
+
+          <p>Doctor: {{data.doctor.name}}</p>
+
+          <p>Date: {{data.appointment_date}}</p>
+
+          <p>Status: {{data.status}}</p>
+        </div>
+
+        {% endfor %}
+      </div>
+
+      {% endif %}
+    </section>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <section class="appointment-page">
+      <h1>Login Account</h1>
+      <h3>{{message}}</h3>
+
+      <form method="POST" class="auth-form">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Username" required />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+
+        <button type="submit">Login</button>
+      </form>
+      <div class="auth-buttons">
+
+    <a href="/"
+    class="back-btn">
+
+        ← Back To Home
+
+    </a>
+
+
+    <a href="/forgot-password/"
+    class="forget-btn">
+
+        Forgot Password
+
+    </a>
+
+    </div>
+        </section>
+        {% if reset_success %}
+
+    <script>
+
+        alert("Password Changed Successfully");
+
+    </script>
+
+    {% endif %}
+  </body>
+</html>

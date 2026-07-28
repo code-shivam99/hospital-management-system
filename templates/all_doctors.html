@@ -1,0 +1,34 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <title>All Doctors</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <section class="doctors">
+      <a href="/" class="back-btn"> ← Back </a>
+
+      <h2>All Doctors</h2>
+
+      <div class="doctor-container">
+        {% for doctor in doctors %}
+
+        <a href="/doctor/{{doctor.id}}/" class="doctor-link">
+          <div class="doctor-card">
+            <img src="{{doctor.image.url}}" />
+
+            <h3>{{doctor.name}}</h3>
+
+            <p>{{doctor.specialization}}</p>
+          </div>
+        </a>
+
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>
